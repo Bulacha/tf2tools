@@ -1,0 +1,23 @@
+rem Salve como ".bat" pelo bloco de notas
+@echo off
+title dem Tool
+:lp
+set "t=%time%"
+set "h=%t:~0,2%"
+set "mi=%t:~3,2%"
+set "dt=%date%"
+set "d=%dt:~0,2%"
+set "m=%dt:~3,2%"
+set "a=%dt:~8,2%"
+set "r=%h%_%mi%(%d%_%m%_%a%)"
+
+rename "demo.dem" "%r%demo.dem"
+rename "demotv.dem" "%r%demo_tv.dem"
+rename "condump000.txt" "%r%demo.txt"
+
+md Demos
+move "%r%demo.dem" "Demos"
+move "%r%demo_tv.dem" "Demos"
+move "%r%demo.txt" "Demos"
+
+goto lp
